@@ -22,10 +22,10 @@ const notFoundMiddleware = require('./middleware/not-found');
 app.use(express.json());
 // security setup
 app.set('trust proxy', 1)
-app.use(rateLimiter({
-  windowMs: 13 * 60 * 1000, // 15 minutes
-  max: 100 // Limit each IP to 100 requests per windowMs
-}))
+// app.use(rateLimiter.RateLimiter({
+//   windowMs: 13 * 60 * 1000, // 15 minutes
+//   max: 100 // Limit each IP to 100 requests per windowMs
+// }))
 app.use(helmet())
 app.use(cors())
 app.use(xss())
